@@ -9,11 +9,27 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class WhiteCell extends Actor
 {
+
+    
+    private void checkCollisions(){
+     if(isTouching(Bacteria.class)){
+         Bloodstream b = (Bloodstream) getWorld();
+         b.addScore(20);
+         removeTouching(Bacteria.class); 
+         Greenfoot.playSound("slurp.wav");
+        }
+     if(isTouching(Virus.class)){
+         Greenfoot.playSound("game-over.wav");
+         Greenfoot.stop();
+     }
+    
+    }
+    
     /**
      * Act: move up and down when cursor keys are pressed.
      */
     public void act() 
-    {
+    {   checkCollisions();
         checkKeyPress();
     }
     

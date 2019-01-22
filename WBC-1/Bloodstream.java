@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bloodstream extends World
 {
-
+    private int score = 0;
     /**
      * Constructor: Set up the staring objects.
      */
@@ -18,6 +18,7 @@ public class Bloodstream extends World
         super(780, 360, 1); 
 
         prepare();
+        addScore(0);
     }
 
     /**
@@ -25,11 +26,15 @@ public class Bloodstream extends World
      */
     public void act()
     {
-        if (Greenfoot.getRandomNumber(100) < 3)
-        {
-            addObject(new Bacteria(), 779, Greenfoot.getRandomNumber(360));
-        }
         if (Greenfoot.getRandomNumber(100) < 2)
+        {
+            addObject(new Bacteria(), 779, (Greenfoot.getRandomNumber(250)) +50);
+        }
+        if (Greenfoot.getRandomNumber(200) < 1)
+        {
+            addObject(new Virus(), 779, (Greenfoot.getRandomNumber(250)) +50);
+        }
+        if (Greenfoot.getRandomNumber(100) < 5)
         {
             addObject(new Lining(),779,0);
             addObject(new Lining(),779,360);
@@ -65,5 +70,10 @@ public class Bloodstream extends World
         addObject(lining11, 596, 359);
         Lining lining12 = new Lining();
         addObject(lining12, 740, 354);
+    }
+    public void addScore(int score)
+    {
+        this.score += score;
+        showText("score: " + this.score ,80,25);
     }
 }

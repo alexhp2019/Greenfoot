@@ -10,4 +10,6 @@ comment2.text=\n\ Create\ new\ floating\ objects\ at\ irregular\ intervals.\n
 comment3.params=
 comment3.target=void\ prepare()
 comment3.text=\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\ In\ this\ case\:\ Create\n\ a\ white\ blood\ cell\ and\ the\ lining\ at\ the\ edge\ of\ the\ blood\ stream.\n
-numComments=4
+comment4.params=score
+comment4.target=void\ addScore(int)
+numComments=5
