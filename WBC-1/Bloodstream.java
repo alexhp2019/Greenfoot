@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * The bloodstream is the setting for our White Blood Cell scenario. 
@@ -16,7 +16,9 @@ public class Bloodstream extends World
     public Bloodstream()
     {    
         super(780, 360, 1); 
-
+        setPaintOrder(Border.class,Lining.class,WhiteCell.class,Virus.class,Bacteria.class,RedCell.class);
+        
+        
         prepare();
         addScore(0);
     }
@@ -34,10 +36,14 @@ public class Bloodstream extends World
         {
             addObject(new Virus(), 779, (Greenfoot.getRandomNumber(250)) +50);
         }
-        if (Greenfoot.getRandomNumber(100) < 5)
+        if (Greenfoot.getRandomNumber(100) < 2)
         {
             addObject(new Lining(),779,0);
             addObject(new Lining(),779,360);
+        }
+        if (Greenfoot.getRandomNumber(100) < 2)
+        {
+            addObject(new RedCell(), 779, (Greenfoot.getRandomNumber(250)) +50);
         }
     }
     
@@ -49,6 +55,10 @@ public class Bloodstream extends World
     {
         WhiteCell whitecell = new WhiteCell();
         addObject(whitecell, 83, 179);
+        Border Border1 = new Border();
+        addObject(Border1,740,179);        
+        Border Border2 = new Border();
+        addObject(Border2,0,179);
         Lining lining = new Lining();
         addObject(lining, 126, 1);
         Lining lining2 = new Lining();
@@ -70,6 +80,8 @@ public class Bloodstream extends World
         addObject(lining11, 596, 359);
         Lining lining12 = new Lining();
         addObject(lining12, 740, 354);
+        
+   
     }
     public void addScore(int score)
     {

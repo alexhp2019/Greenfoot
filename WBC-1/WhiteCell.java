@@ -19,7 +19,9 @@ public class WhiteCell extends Actor
          Greenfoot.playSound("slurp.wav");
         }
      if(isTouching(Virus.class)){
-         Greenfoot.playSound("game-over.wav");
+         Bloodstream b = (Bloodstream) getWorld();
+         b.addScore(-10);
+         Greenfoot.playSound("game-over.wav");         
          Greenfoot.stop();
      }
     

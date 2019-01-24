@@ -9,19 +9,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bacteria extends Actor
 {
-    /**
-     * Constructor. Nothing to do so far.
-     */
-    public Bacteria()
-    {
-    }
-
+    int speed = Greenfoot.getRandomNumber(4)+1 ;
+    
+   
+   
     /**
      * Float along the bloodstream, slowly rotating.
      */
     public void act() 
     {
-        setLocation(getX() -2 , getY());
+        setLocation(getX() - speed, getY());
         turn(1);
         
         if (getX() == 0) 
