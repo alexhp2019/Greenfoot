@@ -9,16 +9,16 @@
  */
 public class Bloodstream extends World
 {
+    private int time = 2000;
     private int score = 0;
-    /**
-     * Constructor: Set up the staring objects.
-     */
+     
+    
     public Bloodstream()
     {    
         super(780, 360, 1); 
         setPaintOrder(Border.class,Lining.class,WhiteCell.class,Virus.class,Bacteria.class,RedCell.class);
         
-        
+        showTime();
         prepare();
         addScore(0);
     }
@@ -87,5 +87,11 @@ public class Bloodstream extends World
     {
         this.score += score;
         showText("score: " + this.score ,80,25);
+    }
+    
+   private void showTime()
+    {
+        this.time = time;
+        showText("time: " + this.time,700,25);
     }
 }
