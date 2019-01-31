@@ -29,6 +29,7 @@ public class Key extends Actor
         
         if(isDown && !Greenfoot.isKeyDown(key)){
             setImage(colour + "-key.png");
+            Greenfoot.playSound(note);
             isDown = false;
         }
     }
