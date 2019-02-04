@@ -23,5 +23,11 @@ public class MyWorld extends World
     private void setUp()
     {
         addObject(new Block(), 300, 200);
+        int i = 0;
+        
+        while (i<12){
+           addObject(new Apple(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(500));
+           i++;
+        }
     }
 }

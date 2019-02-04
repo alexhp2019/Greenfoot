@@ -45,7 +45,7 @@ public class Leaf extends Actor
      * forth between two images.
      */
     public void changeImage()
-    {
+    {        
         if (getImage() == img1) 
         {
             setImage(img2);
@@ -53,5 +53,7 @@ public class Leaf extends Actor
         else {
             setImage(img1);
         }
+   }
     }
-}
+
+

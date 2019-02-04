@@ -58,6 +58,10 @@ public class Block extends Actor
         if (Greenfoot.mouseClicked(null)) 
         {
            List<Leaf> leaves = getWorld().getObjects(Leaf.class);
+           for ( Leaf l : leaves) {
+            l.changeImage();
+         }
+
         }
     }
     
