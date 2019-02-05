@@ -43,11 +43,17 @@ public class Block extends Actor
      */
     private void checkEdge()
     {
-        if (isAtEdge()) 
-        {
-            delta = -delta;  
-            getWorld().addObject(new Leaf(),getX(),getY());
-        }
+          if (isAtEdge()) 
+          {
+         delta = -delta;  
+         getWorld().addObject(new Leaf(),getX(),getY());
+           
+         List<Apple> apples = getWorld().getObjects(Apple.class);
+           for ( Apple a : apples) {
+            a.turn(90);
+         }
+        
+       }
     }
     
     /**
@@ -56,12 +62,12 @@ public class Block extends Actor
     private void checkMouseClick()
     {
         if (Greenfoot.mouseClicked(null)) 
-        {
-           List<Leaf> leaves = getWorld().getObjects(Leaf.class);
-           for ( Leaf l : leaves) {
-            l.changeImage();
-         }
-
+        {  if (getX() < 300){
+             List<Leaf> leaves = getWorld().getObjects(Leaf.class);
+                for ( Leaf l : leaves) {
+                l.changeImage();
+             }               
+           }           
         }
     }
     

@@ -24,10 +24,14 @@ public class MyWorld extends World
     {
         addObject(new Block(), 300, 200);
         int i = 0;
-        
+        int q = 0;
         while (i<12){
            addObject(new Apple(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(500));
            i++;
+        }
+        while (q<8){
+           addObject(new Pear(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(500));
+           q++;
         }
     }
 }
