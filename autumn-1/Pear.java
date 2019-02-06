@@ -14,6 +14,9 @@ public class Pear extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+       if(isAtEdge())
+       {
+         setLocation(0,getY());
+        }
     }    
 }

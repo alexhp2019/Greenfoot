@@ -53,12 +53,10 @@ public class Block extends Actor
             a.turn(90);
          }
          List<Pear> pears = getWorld().getObjects(Pear.class);
-         if(Greenfoot.getX(pears) = 600)
-         {
            for ( Pear p : pears) {
             p.move(20);
          }        
-        }
+
 
        }
     }
