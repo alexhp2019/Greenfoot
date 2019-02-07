@@ -1,5 +1,5 @@
 import greenfoot.*; 
-
+import java.util.List;
 
 /**
  * A 'Body' is any kind of object in space that has a mass. It could be 
@@ -44,7 +44,38 @@ public class Body extends SmoothMover
      */
     public void act() 
     {
-      move();
+        applyForces();
+        move();
+    }
+    
+    /**
+     * Apply the forces of gravity from all the other bodies in this universe.
+     */
+    private void applyForces()
+    {
+        List<Body> bodies = getWorld().getObjects(Body.class);
+        for(Body b:bodies)
+        {
+           if(b != this)
+           {
+              applyGravity(b); 
+           }
+        }
+    }
+    
+    /**
+     * Apply the force of gravity of a given body to this one.
+     */
+    private void applyGravity(Body other)
+    {
+        double dx = other.getExactX() - this.getExactX();
+        double dy = other.getExactY() - this.getExactY();
+        double dist = Math.sqrt(dx*dx + dy*dy);
+        double force = GRAVITY* ((this.mass * other.mass)/(dist*dist));
+        double acceleration = force / this.mass;
+        Vector v = new Vector(dx,dy);
+        v.setLength(acceleration);
+        this.addToVelocity(v);
     }
     
     /**
