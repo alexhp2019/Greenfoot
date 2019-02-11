@@ -24,6 +24,7 @@ public class Rocket extends SmoothMover
     public Rocket()
     {
         reloadDelayCount = 5;
+        addToVelocity(new Vector(Greenfoot.getRandomNumber(360), 0.25) );
     }
 
     /**
@@ -33,6 +34,8 @@ public class Rocket extends SmoothMover
     public void act()
     {
         checkKeys();
+        move();
+        checkCollisions();
         reloadDelayCount++;
     }
     
@@ -45,6 +48,34 @@ public class Rocket extends SmoothMover
         {
             fire();
         }
+        if (Greenfoot.isKeyDown("left"))
+        {
+            turn(-5);
+        }
+        if (Greenfoot.isKeyDown("right"))
+        {
+            turn(5);
+        }
+        if(Greenfoot.isKeyDown("up"))
+        {
+            setImage(rocketWithThrust);
+            addToVelocity(new Vector(getRotation(), 0.25));            
+        }
+        else
+        {
+            setImage(rocket);
+        }
+    }
+    
+    public void checkCollisions()
+    {
+      if(isTouching(Asteroid.class))      
+      {
+        Space s = (Space)getWorld();
+        s.addObject(new Explosion(), getX(), getY());
+        s.removeObject(this);
+      }
+      
     }
     
     /**
