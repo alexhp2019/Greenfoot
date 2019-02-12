@@ -35,7 +35,6 @@ public class Rocket extends SmoothMover
     {
         checkKeys();
         move();
-        checkCollisions();
         reloadDelayCount++;
     }
     
@@ -67,16 +66,7 @@ public class Rocket extends SmoothMover
         }
     }
     
-    public void checkCollisions()
-    {
-      if(isTouching(Asteroid.class))      
-      {
-        Space s = (Space)getWorld();
-        s.addObject(new Explosion(), getX(), getY());
-        s.removeObject(this);
-      }
-      
-    }
+   
     
     /**
      * Fire a bullet if the gun is ready.

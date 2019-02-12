@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.List;
 /**
  * A rock in space.
  * 
@@ -44,6 +44,7 @@ public class Asteroid extends SmoothMover
     public void act()
     {         
         move();
+        checkCollisions();
     }
 
     /**
@@ -105,4 +106,27 @@ public class Asteroid extends SmoothMover
             getWorld().removeObject(this);
         }
     }
+    
+     /**
+     * See if this Asteroid has hit a rocket.
+     *
+     */
+   
+    
+    
+    public void checkCollisions()
+    
+     {
+       List<Rocket> rockets = getObjectsInRange(getImage().getWidth()/2, Rocket.class);
+         
+         if(rockets != null)      
+       {
+         Space s = (Space)getWorld();
+         s.addObject(new Explosion(), getX(), getY());
+         s.addObject(new ScoreBoard(100), 400, 270);
+         s.removeObject(rockets.get(0));
+       
+       }
+      
+      }
 }

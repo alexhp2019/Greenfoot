@@ -17,7 +17,7 @@ public class Space extends World
      */
     public Space() 
     {
-        super(600, 500, 1);
+        super(800, 600, 1);
         GreenfootImage background = getBackground();
         background.setColor(Color.BLACK);
         background.fill();
@@ -29,7 +29,7 @@ public class Space extends World
         addAsteroids(startAsteroids);
         
         scoreCounter = new Counter("Score: ");
-        addObject(scoreCounter, 60, 480);
+        addObject(scoreCounter, 60, 530);
 
         Explosion.initializeImages();
         ProtonWave.initializeImages();
