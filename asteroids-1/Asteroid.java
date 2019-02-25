@@ -119,7 +119,7 @@ public class Asteroid extends SmoothMover
      {
        List<Rocket> rockets = getObjectsInRange(getImage().getWidth()/2, Rocket.class);
          
-         if(rockets != null)      
+         if(!rockets.isEmpty())     
        {
          Space s = (Space)getWorld();
          s.addObject(new Explosion(), getX(), getY());
