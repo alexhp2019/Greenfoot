@@ -19,13 +19,14 @@ public class ProtonWave extends Actor
      * recreated for every object (improves performance significantly).
      */
     private static GreenfootImage[] images;
-    
+    private int age = 0;
     /**
      * Create a new proton wave.
      */
     public ProtonWave() 
     {
         initializeImages();
+        setImage(images[0]);
     }
     
     /** 
@@ -47,12 +48,18 @@ public class ProtonWave extends Actor
             }
         }
     }
+   
     
     /**
      * Act for the proton wave is: grow and check whether we hit anything.
      */
     public void act()
     { 
+        setImage(images[age]);
+        age++;
+        if(age == 30){
+           getWorld().removeObject(this); 
+        }
     }
     
 }
