@@ -10,7 +10,8 @@ import greenfoot.*;
 public class Space extends World
 {
     private Counter scoreCounter;
-    private int startAsteroids =4;
+    private int startAsteroids = 4;
+    private int asteroidCount = 4;
 
     /**
      * Create the space and all objects within it.
