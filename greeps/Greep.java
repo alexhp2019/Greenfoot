@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
-
+import java.util.List;
 /**
  * A Greep is an alien creature that likes to collect tomatoes.
  * 
@@ -41,13 +41,13 @@ public class Greep extends Creature
             }
             else {                
                 move();
-                checkCollisions();               
+                returnHome();
            }
         }
         else {
-            move();
+            move();            
             checkFood();
-            checkCollisions();
+            checkCollisions();          
         }
     }
 
@@ -58,13 +58,13 @@ public class Greep extends Creature
     {
         // check whether there's a tomato pile here
         TomatoPile tomatoes = (TomatoPile) getOneIntersectingObject(TomatoPile.class);
-        if (tomatoes != null) {
+        if (tomatoes != null) {            
             loadTomato();
             // Note: this attempts to load a tomato onto *another* Greep. It won't
             // do anything if we are alone here.
         }
     }
-    
+
     public void checkCollisions()
     {
         if(atWater())
@@ -75,9 +75,15 @@ public class Greep extends Creature
         {
             turn(Greenfoot.getRandomNumber(180));
         }
+        
     }
 
 
+    public void returnHome()
+    {        
+        turnHome();
+        checkCollisions();
+    }
     /**
      * This method specifies the name of the author (for display on the result board).
      */
